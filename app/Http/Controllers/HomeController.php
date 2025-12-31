@@ -25,6 +25,57 @@ class HomeController extends Controller
                 'price' => 9800,
                 'image' => 'https://fastly.picsum.photos/id/541/400/300.jpg?hmac=Nv2HGFRcYYspp9apC3lhW0Pbeb1yjhaG7nQIu--zqF8',
             ],
+            [
+                'name'  => 'ロゴTシャツ',
+                'price' => 6800,
+                'image' => 'https://fastly.picsum.photos/id/541/400/300.jpg?hmac=Nv2HGFRcYYspp9apC3lhW0Pbeb1yjhaG7nQIu--zqF8',
+            ],
+            [
+                'name'  => 'デニムジャケット',
+                'price' => 12800,
+                'image' => 'https://fastly.picsum.photos/id/541/400/300.jpg?hmac=Nv2HGFRcYYspp9apC3lhW0Pbeb1yjhaG7nQIu--zqF8',
+            ],
+            [
+                'name'  => 'ワイドデニム',
+                'price' => 9800,
+                'image' => 'https://fastly.picsum.photos/id/541/400/300.jpg?hmac=Nv2HGFRcYYspp9apC3lhW0Pbeb1yjhaG7nQIu--zqF8',
+            ],
+            [
+                'name'  => 'スウェットパーカー',
+                'price' => 8900,
+                'image' => 'https://fastly.picsum.photos/id/541/400/300.jpg?hmac=Nv2HGFRcYYspp9apC3lhW0Pbeb1yjhaG7nQIu--zqF8',
+            ],
+            [
+                'name'  => 'チェックシャツ',
+                'price' => 7500,
+                'image' => 'https://fastly.picsum.photos/id/541/400/300.jpg?hmac=Nv2HGFRcYYspp9apC3lhW0Pbeb1yjhaG7nQIu--zqF8',
+            ],
+            [
+                'name'  => 'ナイロンブルゾン',
+                'price' => 14800,
+                'image' => 'https://fastly.picsum.photos/id/541/400/300.jpg?hmac=Nv2HGFRcYYspp9apC3lhW0Pbeb1yjhaG7nQIu--zqF8',
+            ],
+            [
+                'name'  => 'テーパードパンツ',
+                'price' => 9200,
+                'image' => 'https://fastly.picsum.photos/id/541/400/300.jpg?hmac=Nv2HGFRcYYspp9apC3lhW0Pbeb1yjhaG7nQIu--zqF8',
+            ],
+            [
+                'name'  => 'ニットセーター',
+                'price' => 8400,
+                'image' => 'https://fastly.picsum.photos/id/1074/400/300.jpg',
+            ],
+            [
+                'name'  => 'ロングコート',
+                'price' => 19800,
+                'image' => 'https://fastly.picsum.photos/id/1084/400/300.jpg',
+            ],
+            [
+                'name'  => 'スニーカー',
+                'price' => 11000,
+                'image' => 'https://fastly.picsum.photos/id/21/400/300.jpg',
+            ],
+
         ];
 
         return view('index', compact('products'));

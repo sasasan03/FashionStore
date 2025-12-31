@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>@yield('title', 'Fashion Store')</title>
+    <title>@yield('title', 'Sample Page')</title>
     <style>
         body {
             margin: 0;
@@ -51,7 +51,7 @@
 
     <header>
         <div class="header-inner">
-            <div class="logo">FashionStore</div>
+            <div class="logo">SamplePage</div>
             <nav>
                 <ul>
                     <li><a href="#">TOP</a></li>

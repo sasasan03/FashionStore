@@ -1,7 +1,5 @@
 @extends('layouts.main')
 
-@section('title', 'ホーム')
-
 @push('styles')
 <style>
     /* ===== information ===== */

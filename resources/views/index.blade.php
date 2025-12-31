@@ -1,5 +1,7 @@
 @extends('main')
 
+@section('title', 'ホーム')
+
 @push('styles')
 <style>
     /* ===== information ===== */
@@ -35,10 +37,6 @@
         padding: 0 20px;
     }
 
-    .product {
-        border: 1px solid #eee;
-    }
-
     /* 黒塗り画像ダミー */
     .product-image {
         width: 100%;
@@ -64,6 +62,9 @@
 
     .product {
         border: 1px solid #eee;
+        display: block;
+        color: inherit;
+        text-decoration: none;
         transition: box-shadow 0.3s ease, transform 0.3s ease;
     }
 
@@ -96,8 +97,8 @@
 </section>
 
 <section class="products">
-    @foreach ($products as $product)
-    <div class="product">
+    @foreach ($products as $index => $product)
+    <a class="product" href="{{ route('products.show', ['product' => $index]) }}">
         <div class="product-image">
             <img src="{{ $product['image'] }}" alt="{{ $product['name'] }}">
         </div>
@@ -111,7 +112,7 @@
                 ¥{{ number_format($product['price']) }}
             </div>
         </div>
-    </div>
+    </a>
     @endforeach
 </section>
 

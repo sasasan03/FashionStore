@@ -9,7 +9,27 @@ class HomeController extends Controller
 {
     public function index(): View
     {
-        $products = [
+        $products = $this->products();
+
+        return view('index', compact('products'));
+    }
+
+    public function show(int $product): View
+    {
+        $products = $this->products();
+
+        if (! array_key_exists($product, $products)) {
+            abort(404);
+        }
+
+        return view('show', [
+            'product' => $products[$product],
+        ]);
+    }
+
+    private function products(): array
+    {
+        return [
             [
                 'name'  => 'ロゴTシャツ',
                 'price' => 6800,
@@ -75,9 +95,6 @@ class HomeController extends Controller
                 'price' => 11000,
                 'image' => 'https://fastly.picsum.photos/id/21/400/300.jpg',
             ],
-
         ];
-
-        return view('index', compact('products'));
     }
 }

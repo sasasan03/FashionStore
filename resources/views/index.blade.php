@@ -28,7 +28,7 @@
     /* ===== product grid ===== */
     .products {
         max-width: 1200px;
-        margin: 60px auto;
+        margin: 15px auto;
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         gap: 30px;

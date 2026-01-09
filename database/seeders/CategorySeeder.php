@@ -8,14 +8,21 @@ use App\Models\Category;
 
 class CategorySeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
     public function run(): void
     {
-        Category::create([
-            'name' => 'Tシャツ',
-            'slug' => 't-shirts',
-        ]);
+        Category::firstOrCreate(
+            ['name' => 'Tシャツ'],
+            ['slug' => 't-shirts']
+        );
+
+        Category::firstOrCreate(
+            ['name' => 'パンツ'],
+            ['slug' => 'pants']
+        );
+
+        Category::firstOrCreate(
+            ['name' => 'アウター'],
+            ['slug' => 'outer']
+        );
     }
 }

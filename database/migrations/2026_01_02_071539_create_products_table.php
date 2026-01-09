@@ -12,13 +12,18 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('products', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('category_id')->constrained()->cascadeOnDelete();
-            $table->string('name');
-            $table->string('slug')->unique();
-            $table->integer('price');
-            $table->text('description')->nullable();
+            $table->uuid('id')->primary()->comment('ID');
+            $table->foreignUuid('category_id')
+                ->constrained()
+                ->cascadeOnDelete()
+                ->comment('カテゴリーID');
+            $table->string('name')->comment('商品名');
+            $table->integer('price')->comment('商品の値段');
+            $table->boolean('is_active')->default(true)->comment('販売中 / 停止中');
+            $table->string('slug')->unique()->comment('URLに出すための英語のあだ名');
+            $table->text('description')->nullable()->comment('商品詳細');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

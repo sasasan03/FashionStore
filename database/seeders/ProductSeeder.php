@@ -17,28 +17,37 @@ class ProductSeeder extends Seeder
         $outerCategory  = Category::where('slug', 'outer')->first();
 
         // 商品データ
-        $products = [
+
+        Product::firstOrCreate(
+            ['slug' => 'logo-t-shirt'],
             [
                 'category_id'  => $tShirtCategory->id,
                 'name'         => 'ロゴTシャツ',
                 'price'        => 3000,
-                'slug'         => 'logo-t-shirt',
+                'is_active'    => true,
                 'description'  => 'シンプルなロゴ入りTシャツです。',
-            ],
+            ]
+        );
+
+        Product::firstOrCreate(
+            ['slug' => 'denim-pants'],
             [
-                'category_id'  => $pantsCategory->id,
-                'name'         => 'デニムパンツ',
-                'price'        => 8000,
-                'slug'         => 'denim-pants',
-                'description'  => '定番のストレートデニム。',
-            ],
+                'category_id' => $pantsCategory->id,
+                'name'        => 'デニムパンツ',
+                'price'       => 8000,
+                'is_active'   => true,
+                'description' => '定番のストレートデニム。',
+            ]
+        );
+        Product::firstOrCreate(
+            ['slug' => 'nylon-jacket'],
             [
-                'category_id'  => $outerCategory->id,
-                'name'         => 'ナイロンジャケット',
-                'price'        => 12000,
-                'slug'         => 'nylon-jacket',
-                'description'  => '軽量で使いやすいアウター。',
-            ],
-        ];
+                'category_id' => $outerCategory->id,
+                'name'        => 'ナイロンジャケット',
+                'price'       => 12000,
+                'is_active'   => true,
+                'description' => '軽量で使いやすいアウター。',
+            ]
+        );
     }
 }

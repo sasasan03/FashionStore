@@ -12,10 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('categories', function (Blueprint $table) {
-            $table->uuid('id')->primary();
-            $table->string('name');
-            $table->string('slug')->unique();
-            $table->boolean('is_active')->default(true);
+            $table->uuid('id')->primary()->comment('ID');
+            $table->string('name')->comment('カテゴリー名');
+            $table->string('slug')->unique()->comment('URLに出すための英語のあだ名');
+            $table->boolean('is_active')->default(true)->comment('販売中 / 停止中');
             $table->timestamps();
             $table->softDeletes();
         });

@@ -10,13 +10,13 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class Category extends Model
 {
     use HasUuids;
-    use HasFactory, SoftDeletes;
+    use HasFactory;
+    use SoftDeletes;
 
     protected $primaryKey = 'id';
     protected $keyType = 'string';
     public $incrementing = false;
 
-    use SoftDeletes;
     protected $dates = ['deleted_at'];
 
     protected $fillable = [

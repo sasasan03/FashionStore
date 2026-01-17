@@ -19,6 +19,11 @@ class ProductImage extends Model
 
     protected $dates = ['deleted_at'];
 
+    public function products()
+    {
+        $this->belongsTo(Product::class);
+    }
+
     protected $fillable = [
         'product_id',
         'image_path',

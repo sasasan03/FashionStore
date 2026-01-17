@@ -35,11 +35,15 @@
         padding: 0 20px;
     }
 
-    /* 黒塗り画像ダミー */
     .product-image {
         width: 100%;
         aspect-ratio: 1 / 1;
-        background: #000;
+    }
+
+    /* 黒塗り画像ダミー */
+    .product-image img {
+        width: 100%;
+        display: block;
     }
 
     .product-body {
@@ -71,11 +75,6 @@
         transform: translateY(-4px);
     }
 
-    .product-image img {
-        width: 100%;
-        display: block;
-    }
-
     @media (max-width: 768px) {
         .products {
             grid-template-columns: 1fr;
@@ -95,19 +94,19 @@
 </section>
 
 <section class="products">
-    @foreach ($products as $index => $product)
-    <a class="product" href="{{ route('products.show', ['product' => $index]) }}">
+    @foreach ($products as $product)
+    <a class="product" href="{{ route('products.show', $product->slug) }}">
         <div class="product-image">
-            <img src="{{ $product['image'] }}" alt="{{ $product['name'] }}">
+            <img src="{{ $product->mainImage?->image_path }}" alt="{{ $product->name }}">
         </div>
 
         <div class="product-body">
             <div class="product-title">
-                {{ $product['name'] }}
+                {{ $product->name }}
             </div>
 
             <div class="product-price">
-                ¥{{ number_format($product['price']) }}
+                ¥{{ number_format($product->price) }}
             </div>
         </div>
     </a>

@@ -38,11 +38,16 @@
     .product-image {
         width: 100%;
         aspect-ratio: 1 / 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #fafafa;
     }
 
-    /* 黒塗り画像ダミー */
     .product-image img {
-        width: 100%;
+        width: 80%;
+        height: 80%;
+        object-fit: contain;
         display: block;
     }
 

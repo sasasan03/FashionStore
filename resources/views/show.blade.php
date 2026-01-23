@@ -37,14 +37,14 @@
                 </div>
                 <div class="product-summary">
                     <!-- 商品名 -->
-                    <h5>{{ $product->name }}</h5>
+                    <h2>{{ $product->name }}</h2>
                     <!-- 値段 -->
                     <p class="product-price">¥{{ number_format($product->price) }}</h3>
                         <!-- 商品説明 -->
                     <h3>{{ $product->description }}</h3>
                     <!-- 購入ボタンエリア -->
                     <div class="product-purchase">
-                        <button></button>
+                        <button class="btn-add-to-cart" type="button"></button>
                     </div>
                 </div>
             </div>

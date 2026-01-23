@@ -144,6 +144,21 @@
     background-color: blueviolet;
 }
 
+.btn-add-to-cart {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 48px;
+    border: 0;
+    border-radius: 6px;
+    background-color: #000;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
 .product-summary {
     grid-area: summary;
     background-color: blue;
@@ -219,5 +234,11 @@
 
   .product-summary {
     min-width: 0;
+  }
+
+  .btn-add-to-cart {
+    width: 320px;
+    height: 56px;
+    font-size: 18px;
   }
 }

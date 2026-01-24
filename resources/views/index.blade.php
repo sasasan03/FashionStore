@@ -62,14 +62,68 @@
                 grid-template-columns: 1fr;
             }
         }
+
+        /* 🟥 */
+        .hero {
+            position: relative;
+            height: calc(100vh - 13vh);
+            /* ヘッダー分引く。不要なら 100vh */
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            will-change: transform;
+        }
+
+        /* 背景寄りに “でかく” 見せる肝 */
+        .hero-bg img {
+            height: 100%;
+            width: auto;
+            min-width: 300%;
+            /* ← ここで横長にする（3倍） */
+            object-fit: cover;
+            display: block;
+        }
+
+        /* テキストを上に */
+        .hero-copy {
+            position: relative;
+            z-index: 2;
+            height: 100%;
+            display: grid;
+            place-content: center;
+            text-align: center;
+            color: #fff;
+        }
+
+        /* それっぽく暗い膜 */
+        .hero::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, .35), rgba(0, 0, 0, .15));
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .hero-bg {
+                transform: none !important;
+            }
+        }
     </style>
-    <script src="{{ asset('js/change-photo.js') }}" defer></script>
 @endpush
 
 @section('content')
+    <section class="hero">
+        <div class="hero-bg" id="heroBg">
+            <img id="heroImg" src="/storage/home/photo.jpg" alt="" />
+        </div>
     </section>
 
-    <section class="products">
+    {{-- <section class="products">
         @foreach ($products as $product)
             <a class="product" href="{{ route('products.show', $product->slug) }}">
                 <div class="product-image">
@@ -87,5 +141,9 @@
                 </div>
             </a>
         @endforeach
-    </section>
+    </section> --}}
 @endsection
+
+@push('scripts')
+    <script src="{{ asset('js/change-photo.js') }}" defer></script>
+@endpush

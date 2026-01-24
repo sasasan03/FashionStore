@@ -91,25 +91,15 @@
                 <h1 class="header__shopping-title">shopping title</h1>
                 <p class="header__sub-title">sub title</p>
             </div>
-
-            {{-- <div class="header-inner">
-            <div class="logo">SamplePage</div>
-            <nav>
-                <ul>
-                    <li><a href="#">TOP</a></li>
-                    <li><a href="#">ABOUT</a></li>
-                    <li><a href="#">CATEGORY</a></li>
-                    <li><a href="#">MEMBER SHIP</a></li>
-                    <li><a href="#">MY PAGE</a></li>
-                    <li><a href="#">CONTACT</a></li>
-                    <li><a href="#">INSTAGRAM</a></li>
-                </ul>
-            </nav>
-        </div> --}}
         </header>
 
         @yield('content')
 
+
+        @yield('content')
+
+        {{-- ページ個別JSを差し込む --}}
+        @stack('scripts')
     </body>
 
 </html>

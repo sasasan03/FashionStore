@@ -17,7 +17,7 @@
 
 @media (max-width: 768px) {
     .product-sub-images {
-        grid-template-columns: (3, 1fr);
+        grid-template-columns: repeat(3, 1fr);
     }
 }
 
@@ -241,4 +241,155 @@
     height: 56px;
     font-size: 18px;
   }
+}
+
+
+.hero {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  will-change: transform;
+}
+
+.hero-bg img {
+  height: 100%;
+  width: auto;
+  /* 画像が横に長い前提なので cover ではなく “高さ固定＋幅auto” が相性良い */
+  display: block;
+}
+
+/* ------------------------------(index・トップ)---------------------------------------- */
+
+/* product grid */
+.products {
+    max-width: 1200px;
+    margin: 15px auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    padding: 0 20px;
+}
+
+.product-image {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fafafa;
+}
+
+.product-image img {
+    width: 80%;
+    height: 80%;
+    object-fit: contain;
+    display: block;
+}
+
+.product-body {
+    padding: 15px;
+    text-align: center;
+}
+
+.product-title {
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+.product-price {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.product {
+    border: 1px solid #eee;
+    display: block;
+    color: inherit;
+    text-decoration: none;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.product:hover {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    transform: translateY(-4px);
+}
+
+@media (max-width: 768px) {
+    .products {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Home hero (index) */
+.hero.hero--home {
+    height: calc(100vh - 13vh);
+    overflow: hidden;
+}
+
+.hero.hero--home .hero-bg img {
+    height: 100%;
+    width: auto;
+    min-width: 300%;
+    object-fit: cover;
+    display: block;
+}
+
+.hero-copy {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    display: grid;
+    place-content: center;
+    text-align: center;
+    color: #fff;
+}
+
+.hero.hero--home::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, .35), rgba(0, 0, 0, .15));
+    z-index: 1;
+    pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .hero-bg {
+        transform: none !important;
+    }
+}
+
+/* ------------------------------(header)---------------------------------------- */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.header--transparent {
+    background-color: transparent;
+}
+
+/* ヒーロー上では文字を見せるため白系 */
+.header--transparent a,
+.header--transparent .logo {
+    color: #fff;
+}
+
+/* 通常背景が必要なページ用（あとで切り替え可） */
+.header--solid {
+    background-color: #fff;
+}
+
+.header--solid a,
+.header--solid .logo {
+    color: #111;
 }

@@ -4,6 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <title>@yield('title', 'Sample Page')</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
         <style>
             body {
                 margin: 0;
@@ -12,71 +13,88 @@
             }
 
             /* ===== header ===== */
-            header {
-                border-bottom: 1px solid #eee;
+            .site-header {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 72px;
+
+                background: transparent;
+                z-index: 1000;
+
+                pointer-events: none;
             }
 
             .header-inner {
-                max-width: 1200px;
+                max-width: 1400px;
                 margin: 0 auto;
-                padding: 20px 10px;
+                height: 100%;
+                padding: 0 32px;
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
+                pointer-events: auto;
             }
 
-            .logo {
-                font-size: 24px;
-                font-weight: bold;
-            }
-
-            nav ul {
+            /* .header-nav {
                 display: flex;
                 gap: 24px;
-                list-style: none;
-                margin: 0;
-                padding: 0;
+                align-items: center;
+            } */
+            .header-nav {
+                margin-left: auto;
+                /* ← これが決定打 */
+                width: 60%;
+
+                display: flex;
+                justify-content: flex-end;
+                gap: 24px;
+                align-items: center;
             }
 
-            nav a {
+            .header-nav a {
+                position: relative;
+                display: inline-block;
+                padding-bottom: 4px;
+                color: rgba(255, 255, 255, .85);
                 text-decoration: none;
-                color: #333;
-                font-size: 14px;
+                font-size: 13px;
+                letter-spacing: .08em;
+                transition: opacity .2s ease;
             }
 
-            /* ---------new--------- */
+            .header-nav a.icon {
+                font-size: 28px;
+            }
 
-            .header-area {
-                height: 13vh;
+            .header-nav a:not(.icon) {
+                font-size: 18px;
+            }
+
+            .header-nav a::after {
+                content: "";
+                position: absolute;
+                left: 0;
+                bottom: 0;
+
                 width: 100%;
-                display: flex;
-                justify-content: center;
-                align-items: center;
+                height: 1px;
+                background: currentColor;
+
+                transform: scaleX(0);
+                transform-origin: left;
+                transition: transform .25s ease;
+                pointer-events: none;
             }
 
-            .header__title-area {
-                width: 80%;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                background-color: rgba(255, 166, 0, 0.731)
+            /* hover時に出す */
+            .header-nav a:hover::after {
+                transform: scaleX(1);
             }
 
-            .header__shopping-title {
-                font-family: "Noto Serif JP", serif;
-                font-size: 24px;
-                font-weight: 500;
-                letter-spacing: 0.04em;
-            }
-
-            .header__sub-title {
-                margin-top: -15px;
-                font-size: 12px;
-                font-weight: 400;
-                letter-spacing: 0.18em;
-                color: rgba(0, 0, 0, 0.65);
-                text-transform: uppercase;
+            .header-nav a:hover {
+                opacity: .6;
             }
 
             .header__utility {}
@@ -85,20 +103,23 @@
     </head>
 
     <body>
-
-        <header class="header-area">
-            <div class="header__title-area">
-                <h1 class="header__shopping-title">shopping title</h1>
-                <p class="header__sub-title">sub title</p>
+        <header class="site-header">
+            <div class="header-inner">
+                <nav class="header-nav">
+                    <a href="#">TOP</a>
+                    <a href="#">ABOUT</a>
+                    <a href="#">CATEGORY</a>
+                    <a href="#">MY PAGE</a>
+                    <a href="#">CONTACT</a>
+                    <a href="/cart" class="icon">
+                        <i class="bi bi-cart"></i>
+                    </a>
+                </nav>
             </div>
         </header>
 
         @yield('content')
 
-
-        @yield('content')
-
-        {{-- ページ個別JSを差し込む --}}
         @stack('scripts')
     </body>
 

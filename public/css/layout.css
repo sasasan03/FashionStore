@@ -326,70 +326,28 @@
     }
 }
 
-/* Home hero (index) */
-.hero.hero--home {
-    height: calc(100vh - 13vh);
-    overflow: hidden;
+.hero.hero--home{
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
 }
 
-.hero.hero--home .hero-bg img {
-    height: 100%;
-    width: auto;
-    min-width: 300%;
-    object-fit: cover;
-    display: block;
+.hero-bg{
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
 }
 
-.hero-copy {
-    position: relative;
-    z-index: 2;
-    height: 100%;
-    display: grid;
-    place-content: center;
-    text-align: center;
-    color: #fff;
+.hero-track{
+  position: absolute;
+  inset: 0;
+  display: flex;
+  will-change: transform;
 }
 
-.hero.hero--home::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to bottom, rgba(0, 0, 0, .35), rgba(0, 0, 0, .15));
-    z-index: 1;
-    pointer-events: none;
-}
-
-@media (prefers-reduced-motion: reduce) {
-    .hero-bg {
-        transform: none !important;
-    }
-}
-
-/* ------------------------------(header)---------------------------------------- */
-.header {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
-}
-
-.header--transparent {
-    background-color: transparent;
-}
-
-/* ヒーロー上では文字を見せるため白系 */
-.header--transparent a,
-.header--transparent .logo {
-    color: #fff;
-}
-
-/* 通常背景が必要なページ用（あとで切り替え可） */
-.header--solid {
-    background-color: #fff;
-}
-
-.header--solid a,
-.header--solid .logo {
-    color: #111;
+.hero-track .heroImg{
+  height: 100%;
+  width: auto;
+  min-width: 300%;
+  display: block;
 }

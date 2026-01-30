@@ -1,27 +1,34 @@
-  
-const bg = document.getElementById("heroBg");
-const img = document.getElementById("heroImg");
+document.addEventListener("DOMContentLoaded", () => {
+  const track = document.getElementById("heroTrack");
+  if (!track) return;
 
-if (bg && img) {
-  let x = 0;           // 現在位置(px)
-  let dir = -1;        // -1:左へ, 1:右へ
-  const speed = 0.35;  // 速度(px/frame) 好みで調整
+  const first = track.querySelector(".heroImg");
+  if (!first) return;
+
+  // 途切れ防止に複製して後ろに追加（最低2枚にする）
+  const clone = first.cloneNode(true);
+  track.appendChild(clone);
+
+  let x = 0;
+  const speed = 0.6; // px/frame
 
   function animate() {
-    const vw = bg.clientWidth;
-    const iw = img.getBoundingClientRect().width;
+    const w = first.getBoundingClientRect().width; // 1枚分の幅
+    if (!w) return requestAnimationFrame(animate);
 
-    // 画像が画面より短い時は動かさない
-    const maxShift = Math.max(0, iw - vw);
+    x += speed;
 
-    // 往復（moln系でよくある“漂う”感じ）
-    x += dir * speed;
-    if (x <= -maxShift) { x = -maxShift; dir = 1; }
-    if (x >= 0)         { x = 0;         dir = -1; }
+    // 左へ流す（-x）ことで、次の画像が右から自然に入ってくる
+    track.style.transform = `translate3d(${-x}px, 0, 0)`;
 
-    bg.style.transform = `translate3d(${x}px, 0, 0)`;
+    // 1枚分進んだら巻き戻し（継ぎ目は同じ画像なので見えない）
+    if (x >= w) x -= w;
+
     requestAnimationFrame(animate);
   }
 
-  img.addEventListener("load", () => requestAnimationFrame(animate));
-}
+  // 画像読み込み後に開始
+  const start = () => requestAnimationFrame(animate);
+  if (first.complete) start();
+  else first.addEventListener("load", start);
+});

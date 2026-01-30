@@ -7,7 +7,9 @@
 @section('content')
     <section class="hero hero--home">
         <div class="hero-bg" id="heroBg">
-            <img id="heroImg" src="/storage/home/photo.jpg" alt="" />
+            <div class="hero-track" id="heroTrack">
+                <img class="heroImg" src="/storage/home/photo.jpg" alt="" />
+            </div>
         </div>
     </section>
 

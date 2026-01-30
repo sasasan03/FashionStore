@@ -91,9 +91,17 @@
                 opacity: .6;
             }
 
+            /* PC用 */
             @media (min-width: 1140px) {
                 .header__inner {
                     padding: 24px 80px 0;
+                }
+
+                .menu-links {
+                    display: flex;
+                    align-items: center;
+                    gap: 32px;
+                    /* 要素間の幅 */
                 }
             }
 
@@ -109,8 +117,8 @@
             /* ---------------------ハンバーガーメニュー----------------- */
 
             .hamburger {
-                width: 64px;
-                height: 64px;
+                width: 35px;
+                height: 35px;
                 background: transparent;
                 border: 0;
                 padding: 0;
@@ -123,9 +131,9 @@
             .hamburger span {
                 position: relative;
                 display: block;
-                width: 32px;
+                width: 25px;
                 /* 線の長さ */
-                height: 4px;
+                height: 3px;
                 /* 線の太さ */
                 background: white;
                 border-radius: 999px;
@@ -138,38 +146,31 @@
                 content: "";
                 position: absolute;
                 left: 0;
-                width: 32px;
-                height: 4px;
+                width: 25px;
+                height: 3px;
                 background: white;
                 border-radius: 999px;
             }
 
             .hamburger span::before {
-                top: -10px;
+                top: -6px;
                 /* 線の間隔 */
             }
 
             .hamburger span::after {
-                top: 10px;
+                top: 6px;
                 /* 線の間隔 */
             }
 
             /* ====== PC: 1000px以上 ====== */
-            @media (min-width: 1000px) {
-                .menu-links {
-                    display: flex;
-                    align-items: center;
-                    gap: 32px;
-                    /* 要素間の幅 */
-                }
-            }
+            @media (min-width: 1000px) {}
 
             .hamburger {
                 display: none;
             }
 
             /* ====== SP/Tablet: 1000px未満 ====== */
-            @media (max-width: 999px) {
+            @media (max-width: 1140px) {
                 .header__nav {
                     width: auto;
                     gap: 12px;

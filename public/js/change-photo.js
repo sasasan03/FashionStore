@@ -31,4 +31,36 @@ document.addEventListener("DOMContentLoaded", () => {
   const start = () => requestAnimationFrame(animate);
   if (first.complete) start();
   else first.addEventListener("load", start);
+
+
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+  const nav = document.getElementById("headerNav");
+  const btn = nav?.querySelector(".hamburger");
+  const overlay = document.getElementById("menuOverlay");
+  if (!nav || !btn) return;
+
+  const isMobile = () => window.matchMedia("(max-width: 1139px)").matches;
+
+  const closeMenu = () => {
+    nav.classList.remove("is-open");
+    btn.setAttribute("aria-expanded", "false");
+  };
+
+  const closeBtn = nav?.querySelector(".menu-close");
+  closeBtn?.addEventListener("click", closeMenu);
+  
+  btn.addEventListener("click", () => {
+    if (!isMobile()) return;
+    const open = nav.classList.toggle("is-open");
+    btn.setAttribute("aria-expanded", open ? "true" : "false");
+  });
+
+  overlay?.addEventListener("click", closeMenu);
+
+  // 画面を広げたら閉じる
+  window.addEventListener("resize", () => {
+    if (!isMobile()) closeMenu();
+  });
 });

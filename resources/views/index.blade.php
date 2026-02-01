@@ -11,9 +11,14 @@
                 <img class="heroImg" src="/storage/home/photo.jpg" alt="" />
             </div>
         </div>
+
+        <!-- 追加 -->
+        <div class="hero-title">
+            <h1>Sample Store</h1>
+        </div>
     </section>
 
-    {{-- <section class="products">
+    <section class="products">
         @foreach ($products as $product)
             <a class="product" href="{{ route('products.show', $product->slug) }}">
                 <div class="product-image">
@@ -31,7 +36,7 @@
                 </div>
             </a>
         @endforeach
-    </section> --}}
+    </section>
 @endsection
 
 @push('scripts')

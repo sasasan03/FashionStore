@@ -1,25 +1,30 @@
-  const nav = document.getElementById("headerNav");
-  const btn = nav?.querySelector(".hamburger");
+document.addEventListener('DOMContentLoaded', () => {
+  const nav = document.getElementById('headerNav');
+  const btn = nav?.querySelector('.hamburger');
+  const overlay = document.getElementById('menuOverlay');
+  const closeBtn = nav?.querySelector('.menu-close');
+
   if (!nav || !btn) return;
 
-  const isMobile = () => window.matchMedia("(max-width: 999px)").matches;
+  const mq = window.matchMedia('(max-width: 1139px)');
+  const isMobile = () => mq.matches;
 
-  btn.addEventListener("click", () => {
+  const closeMenu = () => {
+    nav.classList.remove('is-open');
+    btn.setAttribute('aria-expanded', 'false');
+  };
+
+  btn.addEventListener('click', () => {
     if (!isMobile()) return;
-    const open = nav.classList.toggle("is-open");
-    btn.setAttribute("aria-expanded", open ? "true" : "false");
+    const open = nav.classList.toggle('is-open');
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
   });
 
-  document.addEventListener("click", (e) => {
-    if (!nav.classList.contains("is-open")) return;
-    if (nav.contains(e.target)) return;
-    nav.classList.remove("is-open");
-    btn.setAttribute("aria-expanded", "false");
-  });
+  overlay?.addEventListener('click', closeMenu);
+  closeBtn?.addEventListener('click', closeMenu);
 
-  // 画面を広げたらメニュー状態をリセット（PCで開きっぱなし防止）
-  window.addEventListener("resize", () => {
+  window.addEventListener('resize', () => {
     if (isMobile()) return;
-    nav.classList.remove("is-open");
-    btn.setAttribute("aria-expanded", "false");
+    closeMenu();
   });
+});

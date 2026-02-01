@@ -1,4 +1,4 @@
-@extends('layouts.main')
+@extends('customer.layouts.main')
 
 @push('styles')
     <link rel="stylesheet" href="{{ asset('css/layout.css') }}">
@@ -12,7 +12,6 @@
             </div>
         </div>
 
-        <!-- 追加 -->
         <div class="hero-title">
             <h1>Sample Store</h1>
         </div>
@@ -20,7 +19,7 @@
 
     <section class="products">
         @foreach ($products as $product)
-            <a class="product" href="{{ route('products.show', $product->slug) }}">
+            <a class="product" href="{{ route('customer.products.show', $product->slug) }}">
                 <div class="product-image">
                     <img src="{{ $product->mainImage?->image_path }}" alt="{{ $product->name }}">
                 </div>

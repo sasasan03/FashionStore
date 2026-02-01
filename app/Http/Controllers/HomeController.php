@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Product;
-use Illuminate\Http\Request;
 use Illuminate\View\View;
 
 class HomeController extends Controller
@@ -12,17 +11,18 @@ class HomeController extends Controller
     {
         $products = Product::with('mainImage')->get();
 
-        return view('index', compact('products'));
+        return view('customer.index', compact('products'));
     }
 
     public function show(Product $product): View
     {
         // リレーション関係にあるhasManyをとってきている
+        $product->load('images');
         $images = $product->images;
 
-        $mainImage = $product->images->firstWhere('sort_order', 1);
+        $mainImage = $images->firstWhere('sort_order', 1);
 
-        return view('show', [
+        return view('customer.show', [
             'product' => $product,
             'images' => $images,
             'mainImage' => $mainImage

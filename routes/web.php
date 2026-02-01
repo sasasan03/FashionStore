@@ -3,5 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 
-Route::get('/', [HomeController::class, 'index']);
-Route::get('/products/{product:slug}', [HomeController::class, 'show'])->name('products.show');
+// Top page (product list)
+Route::get('/', [HomeController::class, 'index'])->name('home');
+
+// Product detail (route model binding by slug)
+Route::get('/customer/products/{product:slug}', [HomeController::class, 'show'])->name('customer.products.show');

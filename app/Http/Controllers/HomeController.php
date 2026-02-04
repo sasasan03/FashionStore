@@ -11,12 +11,13 @@ class HomeController extends Controller
     {
         $products = Product::with('mainImage')->get();
 
-        return view('customer.index', compact('products'));
+        return view('customer.index', [
+            'products' => $products
+        ]);
     }
 
     public function show(Product $product): View
     {
-        // リレーション関係にあるhasManyをとってきている
         $product->load('images');
         $images = $product->images;
 

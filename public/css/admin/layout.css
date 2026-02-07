@@ -75,10 +75,11 @@
 
 /* ===== Tailwindの @layer base / @apply の置き換え ===== */
 
-/* border-border 相当（全要素の border-color を統一） */
+/* border-border 相当 + box-sizing: border-box で幅100%時のはみ出し防止 */
 *,
 *::before,
 *::after {
+    box-sizing: border-box;
     border-color: var(--border);
 }
 

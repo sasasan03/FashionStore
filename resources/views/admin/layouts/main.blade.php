@@ -177,7 +177,7 @@
                                     </header>
 
                                     <div class="card__content">
-                                        <div class="grid grid--2 gap--lg">
+                                        <div class="grid gap--lg">
                                             <div class="field">
                                                 <label class="label" for="productName">商品名 <span
                                                         class="req">*</span></label>

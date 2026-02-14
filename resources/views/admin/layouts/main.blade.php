@@ -26,7 +26,6 @@
                             <i class="bi bi-box-seam"></i>
                             <span class="admin-brand__text">APPAREL ADMIN</span>
                         </div>
-
                         {{-- Mobile only: close row --}}
                         <div class="admin-sidebar__mobileBar">
                             <span class="admin-sidebar__mobileTitle">メニュー</span>

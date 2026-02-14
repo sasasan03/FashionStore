@@ -2,9 +2,6 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
-
-class ProductVariants extends Model
+class ProductVariants extends ProductVariant
 {
-    //
 }

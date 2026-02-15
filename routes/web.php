@@ -5,4 +5,4 @@ use App\Http\Controllers\HomeController;
 
 // Route::get('/', [HomeController::class, 'index'])->name('home');
 require __DIR__ . '/admin.php';
-require __DIR__ . '/products.php';
+require __DIR__ . '/customer.php';

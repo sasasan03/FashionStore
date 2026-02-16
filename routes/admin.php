@@ -17,7 +17,23 @@ Route::prefix('admin')
                 Route::get('/', [DashboardController::class, 'index'])
                     ->name('dashboard');
 
+                Route::view('/products', 'admin.products.index')
+                    ->name('products.index');
                 Route::view('/products/create', 'admin.products.create')
                     ->name('products.create');
+
+                Route::view('/orders', 'admin.orders.index')
+                    ->name('orders.index');
+                Route::view('/orders/{order}', 'admin.orders.show')
+                    ->name('orders.show');
+
+                Route::view('/customers', 'admin.customers.index')
+                    ->name('customers.index');
+                Route::view('/categories', 'admin.categories.index')
+                    ->name('categories.index');
+                Route::view('/analytics', 'admin.analytics.index')
+                    ->name('analytics.index');
+                Route::view('/settings', 'admin.settings.index')
+                    ->name('settings.index');
             });
     });

@@ -20,7 +20,7 @@
                 <i class="bi bi-layout-text-window"></i>
                 <span>ダッシュボード</span>
             </a>
-            <a class="admin-nav__link {{ request()->is('admin/products') || request()->is('admin/products/*') ? 'is-active' : '' }}"
+            <a class="admin-nav__link {{ (request()->is('admin/products') || request()->is('admin/products/*')) && !request()->is('admin/products/create') ? 'is-active' : '' }}"
                 href="{{ url('/admin/products') }}">
                 <i class="bi bi-box"></i>
                 <span>商品一覧</span>

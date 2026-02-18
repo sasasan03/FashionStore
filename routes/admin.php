@@ -14,7 +14,7 @@ Route::prefix('admin')
         Route::name('admin.')
             ->middleware('auth')
             ->group(function () {
-                Route::get('/', [DashboardController::class, 'index'])
+                Route::get('/dashboard', [DashboardController::class, 'index'])
                     ->name('dashboard');
 
                 Route::view('/products', 'admin.products.index')

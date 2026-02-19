@@ -1,0 +1,163 @@
+:root {
+    --cat-bg: #171717;
+    --cat-panel: #1f1f1f;
+    --cat-border: #2b2b2b;
+    --cat-muted: #9a9a9a;
+    --cat-text: #f2f2f2;
+    --cat-pill: #2d6a3a;
+}
+
+.admin-content {
+    padding: 0;
+}
+
+.categories {
+    min-height: 100vh;
+    padding: 28px 28px 40px;
+    background: var(--cat-bg);
+    color: var(--cat-text);
+}
+
+.categories__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--cat-border);
+    padding-bottom: 18px;
+    margin-bottom: 20px;
+}
+
+.categories__title {
+    font-size: 26px;
+    margin: 0 0 6px;
+}
+
+.categories__subtitle {
+    color: var(--cat-muted);
+    font-size: 12px;
+}
+
+.categories__btn {
+    background: #f5f5f5;
+    color: #111;
+    border: 0;
+    border-radius: 10px;
+    padding: 10px 16px;
+    font-size: 12px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+}
+
+.categories__meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: var(--cat-muted);
+    font-size: 12px;
+    margin-bottom: 16px;
+}
+
+.categories__list {
+    display: grid;
+    gap: 16px;
+}
+
+.category-card {
+    background: var(--cat-panel);
+    border: 1px solid var(--cat-border);
+    border-radius: 16px;
+    padding: 18px 18px 14px;
+    transition:
+        border-color 0.15s ease,
+        box-shadow 0.15s ease;
+}
+
+.category-card__top {
+    display: grid;
+    grid-template-columns: 40px 1fr auto;
+    gap: 14px;
+    align-items: center;
+}
+
+.category-card__drag {
+    color: var(--cat-muted);
+    font-size: 18px;
+    display: grid;
+    place-items: center;
+    cursor: grab;
+}
+
+.category-card.is-dragging {
+    opacity: 0.6;
+    transform: rotate(1.5deg);
+    border-color: #1f6feb;
+}
+
+.category-card.is-over {
+    border-color: #3b3b3b;
+    box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.06);
+}
+
+.category-card__title {
+    margin: 0 0 6px;
+    font-size: 16px;
+}
+
+.category-card__desc {
+    color: var(--cat-muted);
+    font-size: 12px;
+}
+
+.category-card__pill {
+    background: #1e3b27;
+    color: #7ad990;
+    border: 1px solid #2d6a3a;
+    border-radius: 999px;
+    padding: 4px 10px;
+    font-size: 11px;
+}
+
+.category-card__divider {
+    border-top: 1px solid var(--cat-border);
+    margin: 14px 0;
+}
+
+.category-card__bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: var(--cat-muted);
+    font-size: 12px;
+}
+
+.category-card__actions {
+    display: flex;
+    gap: 18px;
+}
+
+.category-card__action {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--cat-text);
+    text-decoration: none;
+    font-size: 12px;
+}
+
+@media (max-width: 640px) {
+    .categories__header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .category-card__top {
+        grid-template-columns: 1fr;
+    }
+
+    .category-card__drag {
+        display: none;
+    }
+}

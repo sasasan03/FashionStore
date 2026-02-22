@@ -13,10 +13,10 @@
                 <h1 class="categories__title">カテゴリー管理</h1>
                 <p class="categories__subtitle">アパレルECサイトの商品カテゴリーを管理します</p>
             </div>
-            <a class="categories__btn" href="#">
+            <button class="categories__btn" type="button" id="categoryCreateBtn">
                 <i class="bi bi-plus-lg"></i>
                 カテゴリー作成
-            </a>
+            </button>
         </div>
 
         <div class="categories__meta">
@@ -119,6 +119,55 @@
                     </div>
                 </div>
             </div>
+        </div>
+    </div>
+
+    <div class="category-modal" id="categoryModal" aria-hidden="true" role="dialog" aria-modal="true">
+        <div class="category-modal__overlay" id="categoryModalOverlay"></div>
+        <div class="category-modal__panel" role="document">
+            <div class="category-modal__header">
+                <div>
+                    <h2 class="category-modal__title">カテゴリー作成</h2>
+                    <p class="category-modal__subtitle">新しいカテゴリーを作成します</p>
+                </div>
+                <button class="category-modal__close" type="button" id="categoryModalClose" aria-label="閉じる">
+                    <i class="bi bi-x-lg"></i>
+                </button>
+            </div>
+
+            <form class="category-form">
+                <div class="category-form__field">
+                    <label class="category-form__label">カテゴリー名 <span class="category-form__req">*</span></label>
+                    <input class="category-form__input" type="text" placeholder="トップス、ボトムスなど">
+                </div>
+
+                <div class="category-form__field">
+                    <label class="category-form__label">説明</label>
+                    <textarea class="category-form__textarea" rows="3" placeholder="カテゴリーの説明を入力"></textarea>
+                </div>
+
+                <div class="category-form__field">
+                    <label class="category-form__label">表示順序</label>
+                    <input class="category-form__input" type="number" value="0">
+                    <p class="category-form__help">数値が小さいほど上位に表示されます</p>
+                </div>
+
+                <div class="category-form__field category-form__toggle">
+                    <div>
+                        <div class="category-form__toggle-title">有効化</div>
+                        <div class="category-form__help">無効にすると表示されなくなります</div>
+                    </div>
+                    <label class="switch">
+                        <input type="checkbox" checked>
+                        <span class="switch__slider"></span>
+                    </label>
+                </div>
+
+                <div class="category-form__actions">
+                    <button class="category-form__btn category-form__btn--ghost" type="button" id="categoryModalCancel">キャンセル</button>
+                    <button class="category-form__btn" type="submit">作成</button>
+                </div>
+            </form>
         </div>
     </div>
 @endsection

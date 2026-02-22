@@ -65,4 +65,25 @@
 
         requestAnimationFrame(() => animateReorder(prevRects));
     });
+
+    const modal = document.getElementById('categoryModal');
+    const openBtn = document.getElementById('categoryCreateBtn');
+    const closeBtn = document.getElementById('categoryModalClose');
+    const cancelBtn = document.getElementById('categoryModalCancel');
+    const overlay = document.getElementById('categoryModalOverlay');
+
+    const openModal = () => {
+        modal?.classList.add('is-open');
+        modal?.setAttribute('aria-hidden', 'false');
+    };
+
+    const closeModal = () => {
+        modal?.classList.remove('is-open');
+        modal?.setAttribute('aria-hidden', 'true');
+    };
+
+    openBtn?.addEventListener('click', openModal);
+    closeBtn?.addEventListener('click', closeModal);
+    cancelBtn?.addEventListener('click', closeModal);
+    overlay?.addEventListener('click', closeModal);
 })();

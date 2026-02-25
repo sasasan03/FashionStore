@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('carts', function (Blueprint $table) {
             $table->uuid('id')->primary()->comment('ID');
-            $table->foreignUuid('user_id')->nullable()->constrained()->cascadeOnDelete()->comment('ユーザーID');
+            $table->foreignUuid('user_id')->nullable()->constrained()->nullOnDelete()->comment('ユーザーID');
             $table->string('session_id')->nullable()->index()->comment('ゲスト用');
             $table->timestamps();
             $table->softDeletes();

@@ -18,6 +18,7 @@ return new class extends Migration
                 ->cascadeOnDelete()
                 ->comment('カテゴリーID');
             $table->string('name')->comment('商品名');
+            $table->unsignedInteger('price')->default(0)->comment('商品価格（税込）');
             $table->boolean('is_active')->default(true)->comment('販売中 / 停止中');
             $table->string('slug')->unique()->comment('URLに出すための英語のあだ名');
             $table->text('description')->nullable()->comment('商品詳細');

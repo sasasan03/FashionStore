@@ -3,7 +3,7 @@
 @section('title', 'APPAREL ADMIN | 商品登録')
 
 @section('content')
-    <form class="form" method="POST" action="#" enctype="multipart/form-data" id="productForm">
+    <form class="form" method="POST" action="{{ route('admin.products.store') }}" enctype="multipart/form-data" id="productForm">
         @csrf
 
         <div class="stack stack--lg">
@@ -22,6 +22,16 @@
                         <div class="field">
                             <label class="label" for="productName">商品名 <span class="req">*</span></label>
                             <input class="input" id="productName" name="name" type="text" placeholder="例: オーバーサイズ コットンTシャツ" required>
+                        </div>
+
+                        <div class="field">
+                            <label class="label" for="categoryId">カテゴリ <span class="req">*</span></label>
+                            <select class="input" id="categoryId" name="category_id" required>
+                                <option value="" disabled selected>選択してください</option>
+                                @foreach ($categories ?? [] as $category)
+                                    <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                @endforeach
+                            </select>
                         </div>
 
                         <div class="field">

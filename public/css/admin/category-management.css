@@ -112,12 +112,22 @@
 }
 
 .category-card__pill {
-    background: #1e3b27;
-    color: #7ad990;
     border: 1px solid #2d6a3a;
     border-radius: 999px;
     padding: 4px 10px;
     font-size: 11px;
+}
+
+/* 販売中 */
+.pill-active {
+    background-color: #d1fae5;
+    color: #065f46;
+}
+
+/* 停止中 */
+.pill-inactive {
+    background-color: #fee2e2;
+    color: #7f1d1d;
 }
 
 .category-card__divider {
@@ -272,7 +282,7 @@
 }
 
 .switch__slider::before {
-    content: '';
+    content: "";
     position: absolute;
     height: 20px;
     width: 20px;

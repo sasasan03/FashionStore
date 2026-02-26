@@ -28,17 +28,26 @@ class DatabaseSeeder extends Seeder
 
         $tShirtCategory = Category::firstOrCreate(
             ['name' => 'Tシャツ'],
-            ['slug' => 't-shirts']
+            [
+                'slug' => 't-shirts',
+                'is_active' => true,
+            ]
         );
 
         $pantsCategory = Category::firstOrCreate(
             ['name' => 'パンツ'],
-            ['slug' => 'pants']
+            [
+                'slug' => 'pants',
+                'is_active' => false,
+            ]
         );
 
         $outerCategory = Category::firstOrCreate(
             ['name' => 'アウター'],
-            ['slug' => 'outer']
+            [
+                'slug' => 'outer',
+                'is_active' => true,
+            ]
         );
 
         // 商品データ

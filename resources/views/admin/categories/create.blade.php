@@ -19,23 +19,29 @@
             </button>
         </div>
 
-        {{--  --}}
+        {{-- セクションヘッダ --}}
         <div class="categories__meta">
             <span>全 {{ $nameCount }} 件</span>
             <span>ドラッグ & ドロップで並び替えができます</span>
         </div>
 
-        {{-- カテゴリーリスト --}}
+        {{-- カテゴリーカード --}}
         <div class="categories__list" id="categoryList">
             {{-- リスト内要素 --}}
-            @foreach ($names as $name)
+            @foreach ($categories as $category)
                 <div class="category-card" draggable="true">
                     <div class="category-card__top">
                         <div class="category-card__drag">⋮⋮</div>
                         <div>
-                            <h3 class="category-card__title">{{ $name }}</h3>
+                            <h3 class="category-card__title">{{ $category->name }}</h3>
                         </div>
-                        <span class="category-card__pill">有効</span>
+                        <span @class([
+                            'category-card__pill',
+                            'pill-active' => $category->is_active,
+                            'pill-inactive' => !$category->is_active,
+                        ])>
+                            {{ $category->is_active ? '販売中' : '停止中' }}
+                        </span>
                     </div>
                     <div class="category-card__divider"></div>
                     <div class="category-card__bottom">

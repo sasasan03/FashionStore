@@ -31,6 +31,7 @@ class DatabaseSeeder extends Seeder
             [
                 'slug' => 't-shirts',
                 'is_active' => true,
+                'sort_order' => 1,
             ]
         );
 
@@ -39,6 +40,7 @@ class DatabaseSeeder extends Seeder
             [
                 'slug' => 'pants',
                 'is_active' => false,
+                'sort_order' => 2,
             ]
         );
 
@@ -47,6 +49,7 @@ class DatabaseSeeder extends Seeder
             [
                 'slug' => 'outer',
                 'is_active' => true,
+                'sort_order' => 3,
             ]
         );
 

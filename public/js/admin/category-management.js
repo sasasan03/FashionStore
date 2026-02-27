@@ -4,8 +4,10 @@
 
     let dragging = null;
 
+    // アロー関数。functionの短縮系
     const getCard = (el) => el?.closest?.('.category-card');
 
+    // 'dragstart'->イベント名
     list.addEventListener('dragstart', (e) => {
         const card = getCard(e.target);
         if (!card) return;
